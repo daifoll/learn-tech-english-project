@@ -1,0 +1,91 @@
+[
+    {
+        "header": "eject",
+        "translate": [
+            "извлекать", "вставить", "инженировать", "удалить"
+        ],
+        "correct": 0,
+        "checked": false
+    },
+
+    {
+        "header": "event",
+        "translate": [
+            "плата", "событие", "индикатор", "удалить"
+        ],
+        "correct": 1,
+        "checked": false
+    },
+
+    {
+        "header": "method",
+        "translate": [
+            "событие", "сжимать", "сброс", "метод"
+        ],
+        "correct": 3,
+        "checked": false
+    },
+
+    {
+        "header": "compile",
+        "translate": [
+            "компилировать", "конкатенировать", "учетный данные", "зашифровать"
+        ],
+        "correct": 1,
+        "checked": false
+    },
+
+    {
+        "header": "encrypt",
+        "translate": [
+            "зашифровать", "расшифровать", "укрепить", "компилировать"
+        ],
+        "correct": 1,
+        "checked": false
+    },
+    
+    {
+        "header": "addressbuffer",
+        "translate": [
+            "буферизация адреса", "адресный буфер", "адрес", "буферизация"
+        ],
+        "correct": 3,
+        "checked": false
+    },
+
+    {
+        "header": "layout",
+        "translate": [
+            "макет", "поддержка", "поставщик", "проверка"
+        ],
+        "correct": 0,
+        "checked": false
+    },
+
+    {
+        "header": "namespace",
+        "translate": [
+            "именной", "пространсво имен", "учетные данные", "сжимать"
+        ],
+        "correct": 1,
+        "checked": false
+    },
+
+    {
+        "header": "appliance",
+        "translate": [
+            "принять", "заменить", "устройство", "присвоить"
+        ],
+        "correct": 2,
+        "checked": false
+    },
+
+    {
+        "header": "assignment",
+        "translate": [
+            "присвоение", "соедниение", "недостаток", "разметить"
+        ],
+        "correct": 0,
+        "checked": false
+    }
+]

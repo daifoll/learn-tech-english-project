@@ -1,0 +1,19 @@
+[
+    {
+        "header": "извлекать устройство",
+        "translate": [
+            "eject", "door", "slave", "debug"
+        ],
+        "correct": 0,
+        "checked": false
+    },
+    
+    {
+        "header": "отлаживать",
+        "translate": [
+            "cat", "crow", "pc", "fuck"
+        ],
+        "correct": 1,
+        "checked": false
+    }
+]
