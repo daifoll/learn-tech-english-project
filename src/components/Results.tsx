@@ -21,7 +21,7 @@ export const Results = ({correct, words, showResults, setStep, setCorrect, setCl
           }
           
           {/* onClick={() => (setStep(0), setCorrect(0), setClickedIndex([]))} */}
-        <a  href='/choose' className='transition duration-75 font-thin text-lg hover:bg-primaryBlue hover:text-primaryWhite p-2 text-center'>Начать сначала</a>
+        <a  href='/' className='transition duration-75 font-thin text-lg hover:bg-primaryBlue hover:text-primaryWhite p-2 text-center'>Начать сначала</a>
     </div>
   )
 }

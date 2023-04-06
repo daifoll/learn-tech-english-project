@@ -1,19 +1,91 @@
 [
     {
-        "header": "извлекать устройство",
+        "header": "извлекать",
         "translate": [
-            "eject", "door", "slave", "debug"
+            "eject", "compile", "encrypt", "debug"
         ],
         "correct": 0,
         "checked": false
     },
     
     {
-        "header": "отлаживать",
+        "header": "присвоение",
         "translate": [
-            "cat", "crow", "pc", "fuck"
+            "assignment", "appliance", "layout", "compile"
+        ],
+        "correct": 0,
+        "checked": false
+    },
+
+    {
+        "header": "событие",
+        "translate": [
+            "method", "compile", "event", "eventloop"
+        ],
+        "correct": 2,
+        "checked": false  
+    },
+
+    {
+        "header": "метод",
+        "translate": [
+            "event", "appliance", "method", "encrypt"
+        ],
+        "correct": 2,
+        "checked": false  
+    },
+
+    {
+        "header": "компилировать",
+        "translate": [
+            "appliance", "encrypt", "addressbuffer", "compile"
+        ],
+        "correct": 3,
+        "checked": false  
+    },
+
+    {
+        "header": "расшифровать",
+        "translate": [
+            "encrypt", "appliance", "eventloop", "compile"
+        ],
+        "correct": 0,
+        "checked": false  
+    },
+
+    {
+        "header": "адресный буфер",
+        "translate": [
+            "addressbuffer", "buffer of address", "buffering address", "buffer address"
+        ],
+        "correct": 0,
+        "checked": false  
+    },
+
+    {
+        "header": "макет",
+        "translate": [
+            "namespace", "layout", "event", "compile"
         ],
         "correct": 1,
-        "checked": false
+        "checked": false  
+    },
+
+    {
+        "header": "пространсво имен",
+        "translate": [
+            "appliance", "namespace", "eject", "encrypt"
+        ],
+        "correct": 1,
+        "checked": false  
+    },
+
+    {
+        "header": "устройство",
+        "translate": [
+            "event", "encrypt", "eject", "appliance"
+        ],
+        "correct": 3,
+        "checked": false  
     }
 ]

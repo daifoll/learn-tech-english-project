@@ -21,14 +21,16 @@ import { ErrorPage } from './pages/ErrorPage';
 
 
 function App() {
+
   // Ответы на вопросы
   const [step, setStep] = useState<number>(0)
   const [correct, setCorrect] = useState<number>(0);
   const [clickedIndex, setClickedIndex] = useState<number[]>([])
   const [pageError, setPageError] = useState(false)
 
+
   // Формируем список слов в словаре из localstorage
-  const [dictArr, setDictArr] = useState<string[]>(JSON.parse(localStorage.getItem('dictionary')!))
+  const [dictArr, setDictArr] = useState<string[]>(JSON.parse(localStorage.getItem('dictionary')!) ? JSON.parse(localStorage.getItem('dictionary')!) : [])
 
   useEffect(() => {
 
@@ -67,36 +69,42 @@ function App() {
     let RUS_URL = 'https://api.jsonbin.io/v3/b/63da610aace6f33a22d2c0f3'
     let masterkey = '$2b$10$fxQjebYatHwK6xG6UQkh7.eYJjJmMavfdmIbGOhf7AmFvbXA2bYD.'
 
-    // Ивлекаем нужные элементы из баз данных слов
-    fetch(ENG_URL, {
-      headers: {
-        'Accept': 'application/json',
-        'X-Master-Key': masterkey,
-      }
-    }).then(resp => {
-      if (resp.ok) {
-        return resp.json()
-      }
-      
-      setPageError(true);
-      throw new Error('Что-то пошло не так');
+    if(rus.length === 0) {
 
-    }).then((data) => (setEng(data.record.sort(() => 0.5 - Math.random()))))
+      // Ивлекаем нужные элементы из баз данных слов
+      fetch(ENG_URL, {
+        headers: {
+          'Accept': 'application/json',
+          'X-Master-Key': masterkey,
+        }
+      }).then(resp => {
+        if (resp.ok) {
+          return resp.json()
+        }
+  
+        setPageError(true);
+        throw new Error('Что-то пошло не так');
+  
+      }).then((data) => (setEng(data.record.sort(() => 0.5 - Math.random()))))
+    }
 
-    fetch(RUS_URL, {
-      headers: {
-        'Accept': 'application/json',
-        'X-Master-Key': masterkey,
-      }
-    }).then(resp => {
-      if (resp.ok) {
-        return resp.json()
-      }
-
-      setPageError(true);
-      throw new Error('Что-то пошло не так, попробуйте перезагрузить страницу');
-
-    }).then((data) => (setRus(data.record.sort(() => 0.5 - Math.random()))))
+    if(eng.length === 0) {
+      fetch(RUS_URL, {
+        headers: {
+          'Accept': 'application/json',
+          'X-Master-Key': masterkey,
+        }
+      }).then(resp => {
+        if (resp.ok) {
+          return resp.json()
+        }
+  
+        setPageError(true);
+        throw new Error('Что-то пошло не так, попробуйте перезагрузить страницу');
+  
+      }).then((data) => (setRus(data.record.sort(() => 0.5 - Math.random()))))
+    }
+    
   }, [])
 
 
@@ -106,7 +114,10 @@ function App() {
     let correctAnswer: Correct = 0
     let checkedWord: Checked = false
 
-    if (step !== database.length) {
+    if (step !== database.length && database.length !== 0) {
+      
+      console.log(database)
+      
       question = database[step].header
       translates = database[step].translate
       correctAnswer = database[step].correct

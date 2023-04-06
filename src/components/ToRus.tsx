@@ -15,6 +15,7 @@ export const ToRus = ({ setStep, setCorrect, setClickedIndex, question, correct,
         setClickedIndex((prev) => [...prev, index])
 
         // console.log('Кликнул: ' + index, 'Правильный ответ: ' + correct)
+        // console.log(question)
 
         if (index === correct) {
             setCorrect((prev) => prev + 1)
