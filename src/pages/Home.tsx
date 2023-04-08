@@ -7,18 +7,20 @@ export const Home = () => {
   return (
     <>
       <Container>
-        <h1 className='text-lg font-semibold flex mt-10'>Выберите слова для тренировки:</h1>
-        <div className='flex min-[280px]:flex-col lg:h-auto max-w-full sm:justify-center'>
+        <h1 className='text-base sm:text-lg font-semibold flex mt-10'>Выберите слова для тренировки:</h1>
+        <div className='flex flex-col lg:h-auto sm:justify-center'>
           <Link
             className='
             flex 
             items-center 
-            text-lg 
+            text-sm
+            sm:text-lg 
             transition 
             duration-75 
             h-56 
             basis-1/3 
-            p-4 
+            p-2
+            sm:p-4
             border-x 
             bg-primaryBlue 
             hover:bg-slate-50 
@@ -31,9 +33,9 @@ export const Home = () => {
             '
             to='/choose'>
             
-            <span className='flex items-baseline align-middle'><LanguageIcon fontSize='inherit'/></span>
+            <span className='flex items-baseline'><LanguageIcon fontSize='inherit'/></span>
             <span className='flex ml-1'>
-              Английские слова
+              English words
             </span>
 
           </Link>
@@ -42,12 +44,14 @@ export const Home = () => {
             flex 
             uppercase
             items-center 
-            text-lg 
+            text-sm
+            sm:text-lg 
             transition 
             duration-75 
             h-56
-            basis-1/3 
-            p-4 
+            basis-1/3
+            p-2 
+            sm:p-4 
             bg-primaryBlue 
             hover:bg-slate-50 
             hover:shadow-lg 
