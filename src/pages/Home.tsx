@@ -6,7 +6,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 export const Home = () => {
   return (
     <>
-      <Container>
+      <Container sx={{paddingRight: 1, paddingLeft: 1}}>
         <h1 className='text-base sm:text-lg font-semibold flex mt-10'>Выберите слова для тренировки:</h1>
         <div className='flex flex-col lg:h-auto sm:justify-center'>
           <Link

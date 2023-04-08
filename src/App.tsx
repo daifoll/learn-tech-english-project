@@ -208,7 +208,7 @@ function App() {
       </Header>
 
 
-      <Container>
+      <Container sx={{paddingRight: 0, paddingLeft: 0}}>
         {
           pageError ?
             <ErrorPage />
