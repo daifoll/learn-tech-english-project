@@ -1,10 +1,12 @@
 import { Delete } from '@mui/icons-material'
 import { Button, Drawer, IconButton, Input, Snackbar } from '@mui/material'
+import SwipeableDrawer from '@mui/material';
 import { Box } from '@mui/system'
 import React, { ChangeEvent, useEffect, useState } from 'react'
 
 export const Dictionary = ({ dictArr, setDictArr, dictOpened, setDictOpened }: Dictionary) => {
   const [query, setQuery] = useState<string>('')
+  
   const dictFiltred = dictArr.filter(word => {
     if (query === '') {
       return word

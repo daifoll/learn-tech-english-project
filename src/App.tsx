@@ -28,6 +28,7 @@ function App() {
   const [clickedIndex, setClickedIndex] = useState<number[]>([])
   const [pageError, setPageError] = useState(false)
 
+  // console.log(process.env)
 
   // Формируем список слов в словаре из localstorage
   const [dictArr, setDictArr] = useState<string[]>(JSON.parse(localStorage.getItem('dictionary')!) ? JSON.parse(localStorage.getItem('dictionary')!) : [])
@@ -67,6 +68,7 @@ function App() {
   useEffect(() => {
     let ENG_URL = 'https://api.jsonbin.io/v3/b/63d9237cc0e7653a056a50ec'
     let RUS_URL = 'https://api.jsonbin.io/v3/b/63da610aace6f33a22d2c0f3'
+    
     let masterkey = '$2b$10$fxQjebYatHwK6xG6UQkh7.eYJjJmMavfdmIbGOhf7AmFvbXA2bYD.'
 
     if(rus.length === 0) {
@@ -116,7 +118,7 @@ function App() {
 
     if (step !== database.length && database.length !== 0) {
       
-      console.log(database)
+      // console.log(database)
       
       question = database[step].header
       translates = database[step].translate
@@ -190,7 +192,7 @@ function App() {
 
 
   return (
-    <div className="App h-full">
+    <div className="App h-screen">
       <Header
         showDictionary={showDictionary}
         setStep={setStep}

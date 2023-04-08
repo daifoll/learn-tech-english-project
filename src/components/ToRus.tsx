@@ -7,7 +7,8 @@ export const ToRus = ({ setStep, setCorrect, setClickedIndex, question, correct,
     // Состояние чекбокса в объекте
     const [checked, setChecked] = useState<Checked>(checkedWord)
     const defaultCheckedValue = checkedWord
-
+    
+    
     const currentAnswerStr = translates[correct]
 
     checkedWord = checked
@@ -41,11 +42,11 @@ export const ToRus = ({ setStep, setCorrect, setClickedIndex, question, correct,
 
                 <div className='max-w-full text-center mb-7 mt-3 relative flex justify-center'>
                     <div
-                        className='flex p-2'
+                        className='flex p-'
                     // onMouseEnter={() => onMouseEnterHandleDictionary()}
                     // onMouseLeave={() => onMouseLeaveHandleDictionary()}
                     >
-                        <h1 className='font-semibold mr-4 text-xxl sm:text-xl md:text-2xxl lg:text-xxl'>{question}</h1>
+                        <h1 className='font-semibold mr-4 text-xl sm:text-xl md:text-2xxl lg:text-xxl'>{question}</h1>
 
                         {
 
@@ -66,7 +67,7 @@ export const ToRus = ({ setStep, setCorrect, setClickedIndex, question, correct,
                     <ul className='list-none max-w-full flex-col'>
                         {
                             translates.map((word, index) => {
-                                return <li className='transition text-lg extrasm:text-2sm extrasm:mt-7 lg:text-2lg lg:mt-10 md:text-2lg xl:text-lg xl:mt-2 md:mt-10 duration-75 font-thin hover:bg-primaryBlue hover:text-slate-50 p-2 text-center cursor-pointer' key={word} onClick={() => clickHandler(index)}>{word}</li>
+                                return <li className='transition text-extrasm extrasm:text-2sm extrasm:mt-7 lg:text-2lg lg:mt-10 md:text-2lg xl:text-lg xl:mt-2 md:mt-10 duration-75 font-thin hover:bg-primaryBlue hover:text-slate-50 p-2 text-center cursor-pointer' key={word} onClick={() => clickHandler(index)}>{word}</li>
                             })
                         }
                     </ul>
