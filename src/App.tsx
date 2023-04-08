@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './styles/main.scss'
+import './styles/main.css'
 // import engWords from './store/eng_words.json'
 // import rusWords from './store/rus_words.json'
 // import { Results } from './components/Results';

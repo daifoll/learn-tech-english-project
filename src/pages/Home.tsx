@@ -1,20 +1,23 @@
-import { Article } from '@mui/icons-material'
-import { Box } from '@mui/system'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Container } from '@mui/material'
+import LanguageIcon from '@mui/icons-material/Language';
 
 export const Home = () => {
   return (
-    <div className='min-[280px]:flex-col md:h-screen lg:flex-row lg:h-auto max-w-full'>
-      <Link
-        className='
+    <>
+      <Container>
+        <h1 className='text-lg font-semibold flex mt-10'>Выберите слова для тренировки:</h1>
+        <div className='flex min-[280px]:flex-col lg:h-auto max-w-full sm:justify-center'>
+          <Link
+            className='
             flex 
             items-center 
             text-lg 
             transition 
             duration-75 
             h-56 
-            basis-1/2 
+            basis-1/3 
             p-4 
             border-x 
             bg-primaryBlue 
@@ -23,20 +26,27 @@ export const Home = () => {
             text-slate-50 
             hover:text-primaryBlue
             md:justify-center
-            
+            mt-3
+            uppercase
             '
-        to='/choose'>
-        Слова для чтения документации (с английского на русский)
-      </Link>
-      <Link
-        className='
+            to='/choose'>
+            
+            <span className='flex items-baseline align-middle'><LanguageIcon fontSize='inherit'/></span>
+            <span className='flex ml-1'>
+              Английские слова
+            </span>
+
+          </Link>
+          <Link
+            className='
             flex 
+            uppercase
             items-center 
             text-lg 
             transition 
             duration-75 
             h-56
-            basis-1/2 
+            basis-1/3 
             p-4 
             bg-primaryBlue 
             hover:bg-slate-50 
@@ -44,11 +54,20 @@ export const Home = () => {
             text-slate-50 
             hover:text-primaryBlue 
             md:justify-center
-            mt-1
+            mt-3
            
           '
 
-        to='/choose2'>Слова для чтения документации (с русского на английский)</Link>
-    </div>
+            to='/choose2'>
+
+            <span className='flex'><LanguageIcon fontSize='inherit'/></span>
+            <span className='flex ml-1'>
+              Русские слова
+            </span>
+
+          </Link>
+        </div>
+      </Container>
+    </>
   )
 }
