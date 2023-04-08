@@ -57,7 +57,8 @@ export const AddDictButton = ({ checked, setChecked, dictArr, setDictArr, questi
         checkedIcon={<Bookmark />}
         checked={isChecked() || false}
         onChange={wordChecked}
-        className={'scale-[1.7] lg:scale-[2]'}
+        className={'scale-[0.9] sm:scale-[1.5]'}
+        sx={{padding: 0}}
       />
     </>
     //<input checked={isChecked() || false} onChange={(e) => wordChecked(e)} className='absolute top-0 right-64' type="checkbox" name="AddDict" id="" />

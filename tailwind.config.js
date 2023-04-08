@@ -19,6 +19,10 @@ module.exports = {
       'xxl': ['96px', '128px'],
 
       'nav-l': ['35px', '48px'],
+
+      'words-question-middle-lg': ['35px', '48px'],
+      'words-question-middle-xxl': ['65px', '88px'],
+      
     },
     extend: {
       colors: {

@@ -7,8 +7,8 @@ export const ToRus = ({ setStep, setCorrect, setClickedIndex, question, correct,
     // Состояние чекбокса в объекте
     const [checked, setChecked] = useState<Checked>(checkedWord)
     const defaultCheckedValue = checkedWord
-    
-    
+
+
     const currentAnswerStr = translates[correct]
 
     checkedWord = checked
@@ -38,15 +38,21 @@ export const ToRus = ({ setStep, setCorrect, setClickedIndex, question, correct,
 
     return (
         <Box>
-            <div className='max-w-2xl mx-auto'>
+            <div className='max-w-2xl mx-auto mt-5 sm:mt-10'>
 
-                <div className='max-w-full text-center mb-7 mt-3 relative flex justify-center'>
+                <div className='max-w-full text-center mb-8 sm:mb-16 relative flex items justify-center'>
                     <div
-                        className='flex p-'
+                        className='flex items-center justify-center'
                     // onMouseEnter={() => onMouseEnterHandleDictionary()}
                     // onMouseLeave={() => onMouseLeaveHandleDictionary()}
                     >
-                        <h1 className='font-semibold mr-4 text-xl sm:text-xl md:text-2xxl lg:text-xxl'>{question}</h1>
+                        <h1 className='
+                            font-semibold 
+                            text-words-question-middle-lg 
+                            mr-1
+                            sm:mr-4
+                             
+                            sm:text-xl'>{question}</h1>
 
                         {
 
@@ -67,7 +73,30 @@ export const ToRus = ({ setStep, setCorrect, setClickedIndex, question, correct,
                     <ul className='list-none max-w-full flex-col'>
                         {
                             translates.map((word, index) => {
-                                return <li className='transition text-extrasm extrasm:text-2sm extrasm:mt-7 lg:text-2lg lg:mt-10 md:text-2lg xl:text-lg xl:mt-2 md:mt-10 duration-75 font-thin hover:bg-primaryBlue hover:text-slate-50 p-2 text-center cursor-pointer' key={word} onClick={() => clickHandler(index)}>{word}</li>
+                                return <li className='
+                                            transition
+
+                                            text-base
+                                            sm:text-lg
+
+                                            
+                                            font-thin 
+
+                                            
+                                            sm:mt-8
+                                           
+
+                                            duration-75 
+                                            
+                                            hover:bg-primaryBlue 
+                                            
+                                            hover:text-slate-50 
+                                            
+                                            p-4 
+                                            
+                                            text-center 
+                                            
+                                            cursor-pointer' key={word} onClick={() => clickHandler(index)}>{word}</li>
                             })
                         }
                     </ul>
