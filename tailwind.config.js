@@ -17,9 +17,12 @@ module.exports = {
 
       '2xxl': ['128px', '168px'],
       'xxl': ['96px', '128px'],
+
+      'nav-l': ['35px', '48px'],
     },
     extend: {
       colors: {
+        primaryFontBasic: '#f8fafc',
         primaryBlue: '#1976d2',
         primaryWhite: 'rgb(248 250 252)'
       },
