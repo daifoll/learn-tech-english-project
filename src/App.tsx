@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './styles/main.css'
-// import engWords from './store/eng_words.json'
-// import rusWords from './store/rus_words.json'
-// import { Results } from './components/Results';
-// import { ToRus } from './components/ToRus';
 import { Dictionary } from './components/Dictionary'
 import { Choose } from './pages/Choose';
 import './styles/index.css'
@@ -17,7 +13,6 @@ import { CircularProgress } from '@mui/material';
 import { NotFound } from './pages/NotFound';
 import { Contact } from './pages/Contact';
 import { ErrorPage } from './pages/ErrorPage';
-// import { count } from 'console';
 
 
 function App() {
@@ -69,7 +64,7 @@ function App() {
     let ENG_URL = 'https://api.jsonbin.io/v3/b/63d9237cc0e7653a056a50ec'
     let RUS_URL = 'https://api.jsonbin.io/v3/b/63da610aace6f33a22d2c0f3'
     
-    let masterkey = '$2b$10$fxQjebYatHwK6xG6UQkh7.eYJjJmMavfdmIbGOhf7AmFvbXA2bYD.'
+    let masterkey = process.env.REACT_APP_MASTERKEY!
 
     if(rus.length === 0) {
 
@@ -143,7 +138,6 @@ function App() {
   // Показать / Скрыть словарь
   function showDictionary() {
     setDictOpened(!dictOpened)
-    console.log(step)
   }
 
   // Показать результаты на основе ответов
