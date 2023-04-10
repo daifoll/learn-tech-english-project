@@ -101,11 +101,10 @@ export const About = () => {
         <AccordionDetails>
           <Typography component={'div'}>
             <ul>
-              <li>REACT JS</li>
+              <li>React.JS</li>
               <li>TypeScript</li>
-              <li>Tailwind</li>
+              <li>Tailwind CSS</li>
               <li>Material UI</li>
-              <li>React Router</li>
             </ul>
           </Typography>
         </AccordionDetails>

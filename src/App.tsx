@@ -155,9 +155,9 @@ function App() {
 
       // console.log('CurrentAnswer: ', currentAnswerStr)
       return (
-        <div className='max-w-full mb-10 relative' key={word.header}>
+        <div className='max-w-full mb-10 ml-5 md:ml-0 relative' key={word.header}>
           <div className='flex'>
-            <h1 className='text-2lg font-medium'>{word.header}</h1>
+            <h1 className='text-lg md:text-2lg font-medium mr-1 md:mr-4'>{word.header}</h1>
 
             <AddDictButton
               dictArr={dictArr}
@@ -241,7 +241,7 @@ function App() {
 
                   :
                   <Route path='/choose' element={
-                    <CircularProgress className='absolute top-1/2 left-1/2' />
+                    <CircularProgress className='absolute top-1/2 trt left-1/2' />
                   } />
 
               }

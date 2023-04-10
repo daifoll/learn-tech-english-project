@@ -1,6 +1,5 @@
 import { Delete } from '@mui/icons-material'
-import { Button, Drawer, IconButton, Input, Snackbar } from '@mui/material'
-import SwipeableDrawer from '@mui/material';
+import { Drawer, IconButton, Input } from '@mui/material'
 import { Box } from '@mui/system'
 import React, { ChangeEvent, useEffect, useState } from 'react'
 
@@ -35,7 +34,7 @@ export const Dictionary = ({ dictArr, setDictArr, dictOpened, setDictOpened }: D
   return (
     <>
       <Drawer anchor={'right'} open={dictOpened} onClose={() => setDictOpened(false)}>
-        <Box width={300} padding={2}>
+        <Box className='w-48 sm:w-80 p-2'>
           <form>
             <label>
               <Input placeholder='найти слово' value={query} onChange={handleInputChange} fullWidth />
