@@ -1,6 +1,6 @@
 import React from 'react'
 import { Results } from '../components/Results'
-import { ToRus } from '../components/ToRus'
+import { Translate } from '../components/Translate'
 
 export const Choose = ({ words, step, clickedIndex, setStep, setCorrect, setClickedIndex, question, correct, translates, checkedWord, dictArr, setDictArr, showResults, mouseEnterDict, setMouseEnterDict, correctCount}: Choose) => {
 
@@ -8,7 +8,7 @@ export const Choose = ({ words, step, clickedIndex, setStep, setCorrect, setClic
     <div>
       {
         step !== words.length ? 
-          <ToRus
+          <Translate
             words={words}
             step={step}
             setStep={setStep}

@@ -13,6 +13,7 @@ import { CircularProgress } from '@mui/material';
 import { NotFound } from './pages/NotFound';
 import { Contact } from './pages/Contact';
 import { ErrorPage } from './pages/ErrorPage';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -22,8 +23,6 @@ function App() {
   const [correct, setCorrect] = useState<number>(0);
   const [clickedIndex, setClickedIndex] = useState<number[]>([])
   const [pageError, setPageError] = useState(false)
-
-  // console.log(process.env)
 
   // Формируем список слов в словаре из localstorage
   const [dictArr, setDictArr] = useState<string[]>(JSON.parse(localStorage.getItem('dictionary')!) ? JSON.parse(localStorage.getItem('dictionary')!) : [])
@@ -37,22 +36,6 @@ function App() {
 
   const [mouseEnterDict, setMouseEnterDict] = useState<boolean>(false)
 
-  // useEffect(() => {
-  //   let filtredQuestionsChecked = engWords.filter((word) => {
-  //     if (word.checked) {
-  //       return word
-  //     }
-  //   })
-
-  //   let questionChecked = filtredQuestionsChecked.map((word) => {
-  //     return word.header
-  //   })
-
-  //   let loadedArr = JSON.parse(localStorage.getItem('dictionary')!)
-
-  //   setDictArr([...questionChecked, ...loadedArr])
-  // }, [])
-
 
   const [eng, setEng] = useState<WordObject[]>([])
   const [rus, setRus] = useState<WordObject[]>([])
@@ -63,10 +46,10 @@ function App() {
   useEffect(() => {
     let ENG_URL = 'https://api.jsonbin.io/v3/b/63d9237cc0e7653a056a50ec'
     let RUS_URL = 'https://api.jsonbin.io/v3/b/63da610aace6f33a22d2c0f3'
-    
+
     let masterkey = process.env.REACT_APP_MASTERKEY!
 
-    if(rus.length === 0) {
+    if (rus.length === 0) {
 
       // Ивлекаем нужные элементы из баз данных слов
       fetch(ENG_URL, {
@@ -78,14 +61,14 @@ function App() {
         if (resp.ok) {
           return resp.json()
         }
-  
+
         setPageError(true);
         throw new Error('Что-то пошло не так');
-  
+
       }).then((data) => (setEng(data.record.sort(() => 0.5 - Math.random()))))
     }
 
-    if(eng.length === 0) {
+    if (eng.length === 0) {
       fetch(RUS_URL, {
         headers: {
           'Accept': 'application/json',
@@ -95,13 +78,13 @@ function App() {
         if (resp.ok) {
           return resp.json()
         }
-  
+
         setPageError(true);
         throw new Error('Что-то пошло не так, попробуйте перезагрузить страницу');
-  
+
       }).then((data) => (setRus(data.record.sort(() => 0.5 - Math.random()))))
     }
-    
+
   }, [])
 
 
@@ -112,9 +95,6 @@ function App() {
     let checkedWord: Checked = false
 
     if (step !== database.length && database.length !== 0) {
-      
-      // console.log(database)
-      
       question = database[step].header
       translates = database[step].translate
       correctAnswer = database[step].correct
@@ -147,9 +127,8 @@ function App() {
       const currentAnswerStr = word.translate[word.correct]
       const wordIndex = index
 
-      // console.log('CurrentAnswer: ', currentAnswerStr)
       return (
-        <div className='max-w-full mb-10 ml-5 md:ml-0 relative' key={word.header}>
+        <div className='max-w-full ml-5 md:ml-0 relative' key={word.header}>
           <div className='flex'>
             <h1 className='text-lg md:text-2lg font-medium mr-1 md:mr-4'>{word.header}</h1>
 
@@ -186,94 +165,99 @@ function App() {
 
 
   return (
-    <div className="App h-screen">
-      <Header
-        showDictionary={showDictionary}
+    <div className="App h-screen flex flex-col justify-between">
+      <div>
+        <Header
+          showDictionary={showDictionary}
+          setStep={setStep}
+          setCorrect={setCorrect}
+          setClickedIndex={setClickedIndex}>
+
+          <Dictionary
+            dictArr={dictArr}
+            setDictArr={setDictArr}
+            dictOpened={dictOpened}
+            setDictOpened={setDictOpened}
+          />
+        </Header>
+        <Container sx={{ padding: '50px 0' }}>
+          {
+            pageError ?
+              <ErrorPage />
+              :
+              <Routes>
+                <Route path='/' element={<Home />} />
+                {
+                  eng.length > 0
+                    ?
+                    <Route path='/choose' element={
+                      <Choose
+                        words={eng}
+                        step={step}
+                        setStep={setStep}
+                        setCorrect={setCorrect}
+                        clickedIndex={clickedIndex}
+                        setClickedIndex={setClickedIndex}
+                        question={englishWords.question}
+                        translates={englishWords.translates}
+                        correct={englishWords.correctAnswer}
+                        checkedWord={englishWords.checkedWord}
+                        dictArr={dictArr}
+                        setDictArr={setDictArr}
+                        showResults={showResults}
+                        mouseEnterDict={mouseEnterDict}
+                        setMouseEnterDict={setMouseEnterDict}
+                        correctCount={correct}
+                      />
+                    } />
+
+                    :
+                    <Route path='/choose' element={
+                      <CircularProgress sx={{position: 'absolute', top: '40%', left: '50%', translate: '-50% -40%'}}/>
+                    } />
+
+                }
+                {
+                  rus.length > 0
+                    ?
+                    <Route path='/choose2' element={
+                      <Choose
+                        words={rus}
+                        step={step}
+                        setStep={setStep}
+                        setCorrect={setCorrect}
+                        clickedIndex={clickedIndex}
+                        setClickedIndex={setClickedIndex}
+                        question={russianWords.question}
+                        translates={russianWords.translates}
+                        correct={russianWords.correctAnswer}
+                        checkedWord={russianWords.checkedWord}
+                        dictArr={dictArr}
+                        setDictArr={setDictArr}
+                        showResults={showResults}
+                        mouseEnterDict={mouseEnterDict}
+                        setMouseEnterDict={setMouseEnterDict}
+                        correctCount={correct}
+                      />
+                    } />
+
+                    :
+                    <Route path='/choose2' element={
+                      <CircularProgress className='absolute top-1/2 -translate-x-1/2 translate-y-1/2 left-1/2' />
+                    } />
+                }
+                <Route path='/about' element={<About />} />
+                <Route path='/*' element={<NotFound />} />
+                <Route path='/contact' element={<Contact />} />
+              </Routes>
+          }
+        </Container>
+      </div>
+      <Footer 
         setStep={setStep}
         setCorrect={setCorrect}
-        setClickedIndex={setClickedIndex}>
-
-        <Dictionary
-          dictArr={dictArr}
-          setDictArr={setDictArr}
-          dictOpened={dictOpened}
-          setDictOpened={setDictOpened}
-        />
-      </Header>
-
-
-      <Container sx={{paddingRight: 0, paddingLeft: 0}}>
-        {
-          pageError ?
-            <ErrorPage />
-            :
-            <Routes>
-              <Route path='/' element={<Home />} />
-              {
-                eng.length > 0
-                  ?
-                  <Route path='/choose' element={
-                    <Choose
-                      words={eng}
-                      step={step}
-                      setStep={setStep}
-                      setCorrect={setCorrect}
-                      clickedIndex={clickedIndex}
-                      setClickedIndex={setClickedIndex}
-                      question={englishWords.question}
-                      translates={englishWords.translates}
-                      correct={englishWords.correctAnswer}
-                      checkedWord={englishWords.checkedWord}
-                      dictArr={dictArr}
-                      setDictArr={setDictArr}
-                      showResults={showResults}
-                      mouseEnterDict={mouseEnterDict}
-                      setMouseEnterDict={setMouseEnterDict}
-                      correctCount={correct}
-                    />
-                  } />
-
-                  :
-                  <Route path='/choose' element={
-                    <CircularProgress className='absolute top-1/2 trt left-1/2' />
-                  } />
-
-              }
-              {
-                rus.length > 0
-                  ?
-                  <Route path='/choose2' element={
-                    <Choose
-                      words={rus}
-                      step={step}
-                      setStep={setStep}
-                      setCorrect={setCorrect}
-                      clickedIndex={clickedIndex}
-                      setClickedIndex={setClickedIndex}
-                      question={russianWords.question}
-                      translates={russianWords.translates}
-                      correct={russianWords.correctAnswer}
-                      checkedWord={russianWords.checkedWord}
-                      dictArr={dictArr}
-                      setDictArr={setDictArr}
-                      showResults={showResults}
-                      mouseEnterDict={mouseEnterDict}
-                      setMouseEnterDict={setMouseEnterDict}
-                      correctCount={correct}
-                    />
-                  } />
-
-                  :
-                  <Route path='/choose2' element={
-                    <CircularProgress className='absolute top-1/2 left-1/2' />
-                  } />
-              }
-              <Route path='/about' element={<About />} />
-              <Route path='/*' element={<NotFound />} />
-              <Route path='/contact' element={<Contact />} />
-            </Routes>
-        }
-      </Container>
+        setClickedIndex={setClickedIndex}
+      />
     </div>
   );
 }

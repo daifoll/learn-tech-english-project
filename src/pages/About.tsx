@@ -1,4 +1,4 @@
-import { Bookmark, BookmarkBorder, Delete, ExpandCircleDown, ExpandMore } from '@mui/icons-material'
+import { Bookmark, BookmarkBorder, Delete, ExpandMore } from '@mui/icons-material'
 import { Accordion, AccordionDetails, AccordionSummary, Checkbox, IconButton, Input, Typography } from '@mui/material'
 import { useState } from 'react'
 
@@ -6,7 +6,7 @@ export const About = () => {
   const [addExample, setAddExample] = useState(true)
 
   return (
-    <div className='mt-10 max-w-sm'>
+    <div className='max-full sm:max-w-sm'>
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMore />}

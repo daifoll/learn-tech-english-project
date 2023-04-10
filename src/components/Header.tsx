@@ -66,24 +66,20 @@ export const Header = ({ showDictionary, setStep, setCorrect, setClickedIndex, c
             <Link to="/" onClick={() => (setStep(0), setCorrect(0), setClickedIndex([]))}>
               <Button>
                 <span className='text-primaryFontBasic text-sm hidden sm:inline'>Главная</span>
-                <span className='text-primaryFontBasic sm:hidden'><HomeIcon fontSize='large' /></span>
               </Button>
             </Link>
             <Link to="/about">
               <Button>
                 <span className='text-primaryFontBasic text-sm hidden sm:inline'>О&nbsp;проекте</span>
-                <span className='text-primaryFontBasic sm:hidden'><InfoIcon fontSize='large' /></span>
               </Button>
             </Link>
             <Link to="/contact">
               <Button>
                 <span className='text-primaryFontBasic text-sm hidden sm:inline'>Контакты</span>
-                <span className='text-primaryFontBasic sm:hidden'><ContactPageIcon fontSize='large' /></span>
               </Button>
             </Link>
             <Button onClick={showDictionary}>
               <span className='text-primaryFontBasic text-sm hidden sm:inline'>Словарь</span>
-              <span className='text-primaryFontBasic sm:hidden'><MenuBookIcon fontSize='large' /></span>
             </Button>
           </Box>
           {children}

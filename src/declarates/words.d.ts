@@ -51,13 +51,17 @@ declare interface AddDictButton {
 }
 
 declare interface Dictionary {
-    // question: Question;
-    // checkedWord: Checked;
     dictArr: string[]
     setDictArr: React.Dispatch<React.SetStateAction<string[]>>;
     dictOpened: boolean;
     setDictOpened: React.Dispatch<React.SetStateAction<boolean>>
 
+}
+
+declare interface Footer {
+    setStep: React.Dispatch<React.SetStateAction<number>>
+    setCorrect: React.Dispatch<React.SetStateAction<number>>
+    setClickedIndex: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
 

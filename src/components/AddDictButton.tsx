@@ -28,12 +28,6 @@ export const AddDictButton = ({ checked, setChecked, dictArr, setDictArr, questi
     }
   }
 
-  // if (dictArr.length) {
-  //   // Сохраняем слова в localstorage
-  //   localStorage.setItem('dictionary', JSON.stringify(dictArr))
-  // }
-
-
 
   // Проверяем есть ли слово в словаре и ставим чекбокс на основе этого
   function isChecked() {
@@ -61,6 +55,5 @@ export const AddDictButton = ({ checked, setChecked, dictArr, setDictArr, questi
         sx={{padding: 0}}
       />
     </>
-    //<input checked={isChecked() || false} onChange={(e) => wordChecked(e)} className='absolute top-0 right-64' type="checkbox" name="AddDict" id="" />
   )
 }

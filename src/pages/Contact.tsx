@@ -4,9 +4,9 @@ import React from 'react'
 
 export const Contact = () => {
     return (
-        <Container className = 'pt-11 w-full'>
+        <Container className = 'w-full'>
             <Typography fontWeight={600} fontSize={30} component={'p'}>
-                Связь со мной:
+                Контакты:
             </Typography>
             <Typography marginTop={2} component={'p'}>
                 <a href='https://t.me/+79965003886' target='_blank' className='hover:text-primaryBlue text-[20px]'>Telegram</a>
