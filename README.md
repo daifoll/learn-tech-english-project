@@ -19,7 +19,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Docker pull image
 `docker pull daifoll/english-app`
 
-### Docker run container
+### Docker run container (optional)
 `docker run -d -p 3000:3000 --rm --name english-container daifoll/english-app`
 
 ### Clone Repository
