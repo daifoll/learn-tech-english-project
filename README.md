@@ -28,7 +28,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 `npm install`
 
 ### Install packages if it gives an error
-'npm install --legacy-peer-deps'
+`npm install --legacy-peer-deps`
 
 ### Available Scripts
 In the project directory, you can run:
