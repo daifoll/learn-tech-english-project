@@ -9,7 +9,8 @@ COPY . .
 COPY .env.local .
 
 RUN npm install --legacy-peer-deps
+RUN npm run build
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD [ "npx", "serve", "build" ]
