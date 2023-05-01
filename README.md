@@ -14,12 +14,23 @@ Pet-проект представляет собой SPA приложение д
 - Material UI
 
 ## Getting Started
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### Docker pull image
+`docker pull daifoll/english-app`
+
+### Docker run container (optional)
+`docker run -d -p 3000:3000 --rm --name english-container daifoll/english-app`
+
 ### Clone Repository
 `git clone https://github.com/daifoll/learn-tech-english-project.git`
-### Available Scripts
+### Install packages
+`npm install`
 
+### Install packages if it gives an error
+`npm install --legacy-peer-deps`
+
+### Available Scripts
 In the project directory, you can run:
 
 #### `npm start`
